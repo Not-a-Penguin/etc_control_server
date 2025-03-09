@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build C Program",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "*.c",
+                "-o",
+                "${fileDirname}/main",
+                "-lm"  // Link math library (no debugging)
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Compiles the C program for normal execution."
+        },
+        {
+            "label": "Build C Program (Debug)",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "*.c",
+                "-o",
+                "${fileDirname}/main",
+                "-g",  // Enable debugging symbols
+                "-lm"  // Link math library
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "Compiles the C program with debugging enabled."
+        }
+    ]
+}
